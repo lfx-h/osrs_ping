@@ -1,1 +1,3 @@
 https://mega.nz/#!X49wQZYR!JgacRO3uM35wGB54nIcIPRlWK2-zW9aNuJg2anDZnIc
+
+If you have a feeling this file might be malicious. You can use the python version by downloading python 2.7 and running it through the command line.
