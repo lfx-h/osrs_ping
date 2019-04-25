@@ -84,8 +84,11 @@ while True:
 	
 	print '\n\nBest ping worlds: '
 	print 'World     ping\n----------------'
-	for p in bestping:
-		print '#', p[0], '  - ', p[1], 'ms'
+	if not bestping[0] == bestping[1]:
+		for p in bestping:
+			print '#', p[0], '  - ', p[1], 'ms'
+	else:
+		print '#', bestping[0][0], '  - ', bestping[0][1], 'ms'
 	print '----------------'
 	print 'To test again press enter'
 	print 'To close press ctrl + c'
