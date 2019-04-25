@@ -3,3 +3,5 @@ https://mega.nz/#!X49wQZYR!JgacRO3uM35wGB54nIcIPRlWK2-zW9aNuJg2anDZnIc
 This link is to a converted '.exe' file, so you do not need python to run it, however...
 If you have a feeling this file might be malicious. 
 You can use the python version by downloading python 2.7 and running it through the command line.
+
+As of 4/25/2019 this exe file isn't completely up to date, it will still work but will not list all the best worlds together once the scan is complete.
