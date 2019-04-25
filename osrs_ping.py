@@ -1,11 +1,13 @@
 import subprocess, re, requests
 from bs4 import BeautifulSoup as bs
+bestping = []
 
 def ping(world):
 	result = subprocess.check_output(('ping oldschool%d.runescape.com -n 1 | find "time="' % world), shell=True)
 	split_res = result.split(' ')
 	locator = 'time='
-	
+	global bestping
+
 	for x in split_res:
 		if locator in x:
 			ms = re.findall('\d+', x).pop()
@@ -15,7 +17,15 @@ def ping(world):
 				ms = ms, 'ms - ok ping'
 			else:
 				ms = ms, 'ms'
-	
+		
+			if len(bestping) == 0:
+				bestping.append((world, ms[0]))
+			if int(ms[0]) < int(bestping[0][1]):
+				del bestping[:]
+				bestping.append((world, ms[0]))
+			elif int(ms[0]) == int(bestping[0][1]):
+				bestping.append((world, ms[0]))
+			
 	return ms
 	
 def number_worlds():
@@ -42,11 +52,9 @@ def printed():
 		while True:
 			try:
 				print 'World ', world, ': ', ' '.join(map(str, (ping(world))))
-				
 			except subprocess.CalledProcessError:
 				print 'Error, retrying...\n'
 				continue
-				
 			break
 	
 print 'Welcome to OSRS World Ping Checker!'
@@ -67,7 +75,6 @@ while True:
 			world = int(var)
 			if world in number_worlds():
 				print 'World ', world, ':', ' '.join(map(str, (ping(world)))), '\n\n'
-			
 			else:
 				print "\n\n\nValue Error: Wrong parameters entered, selected world doesn't exist\n"
 				continue
@@ -75,6 +82,11 @@ while True:
 			print "\n\n\nValue Error: Wrong parameters entered, selected world doesn't exist\n"
 			continue
 	
+	print '\n\nBest ping worlds: '
+	print 'World     ping\n----------------'
+	for p in bestping:
+		print '#', p[0], '  - ', p[1], 'ms'
+	print '----------------'
 	print 'To test again press enter'
 	print 'To close press ctrl + c'
 	raw_input()	
