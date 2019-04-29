@@ -55,7 +55,7 @@ def printed():
 			except subprocess.CalledProcessError:
 				print 'Error, retrying...\n'
 				continue
-			break
+			break	
 	
 print 'Welcome to OSRS World Ping Checker!'
 print ' ====    ====    ====     ====       ====    ==   =     =    ===='
@@ -63,7 +63,7 @@ print '||   |  ||      ||   |   ||         ||   |   ||   |\    |   ||'
 print '||   |   ====   |====     ====      |====    ||   ||\   |   ||  _' 
 print '||   |      ||  ||  \        ||     ||       ||   || \  |   ||   |'
 print ' ====    ====   ||   \    ====      ||       ||   ||  \ |    ===='
-print 'This ping checker is scripted to update even when new worlds are released because it takes the server list directly from http://oldschool.runescape.com/slu\nType everything without " "\nNote that the program is simple for the sake of SPEED, adding various filters greatly slowed down the program\n\nPing Thresholds:\nok ping   < 160ms\ngood ping < 50ms\n\n'
+print 'This ping checker is scripted to update even when new worlds are released because it takes the server list directly from http://oldschool.runescape.com/slu\nType everything without " "\nNote that the program is simple for the sake of SPEED, adding various filters greatly slowed down the program\nThe full scan will take about 25 seconds depending on your geological location.\n\nPing Thresholds:\nok ping   < 160ms\ngood ping < 50ms\n\n'
 while True:
 	print 'Specific world:  type # of world'
 	print 'All worlds:      press enter (recommended)'
